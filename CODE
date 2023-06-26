@@ -1,0 +1,49 @@
+#include<stdio.h>
+void findWaiƟngTime(int processes[], int n,
+ int bt[], int wt[])
+{
+ wt[0] = 0;
+ for (int i = 1; i < n ; i++ )
+ wt[i] = bt[i-1] + wt[i-1] ;
+}
+void findTurnAroundTime( int processes[], int n,
+ int bt[], int wt[], int tat[])
+{
+ bt[i] + wt[i]
+ for (int i = 0; i < n ; i++)
+ tat[i] = bt[i] + wt[i];
+}
+void findavgTime( int processes[], int n, int bt[])
+{
+ int wt[n], tat[n], total_wt = 0, total_tat = 0;
+ findWaiƟngTime(processes, n, bt, wt);
+ findTurnAroundTime(processes, n, bt, wt, tat);
+ prinƞ("Processes Burst Ɵme WaiƟng Ɵme Turn around Ɵme\n");
+ // around Ɵme
+ for (int i=0; i<n; i++)
+ {
+ total_wt = total_wt + wt[i];
+ total_tat = total_tat + tat[i];
+ prinƞ(" %d ",(i+1));
+ prinƞ(" %d ", bt[i] );
+ prinƞ(" %d",wt[i] );
+ prinƞ(" %d\n",tat[i] );
+ }
+ int s=(float)total_wt / (float)n;
+ int t=(float)total_tat / (float)n;
+ prinƞ("Average waiƟng Ɵme = %d",s);
+ prinƞ("\n");
+ prinƞ("Average turn around Ɵme = %d ",t);
+}
+int main()
+{
+ //process id's
+ int processes[] = { 1, 2, 3};
+ int n = sizeof processes / sizeof processes[0];
+
+ //Burst Ɵme of all processes
+ int burst_Ɵme[] = {10, 5, 8};
+
+ findavgTime(processes, n, burst_Ɵme);
+ return 0;
+} 
